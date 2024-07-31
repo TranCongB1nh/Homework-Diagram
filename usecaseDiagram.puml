@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+actor "Player" as player
+rectangle chessGame {
+  usecase "Start game" as startGame
+  usecase "Join game" as joinGame
+  usecase "Choose a chess piece" as chooseChess
+  usecase "Move a chess piece" as moveChess
+  usecase "Undo move" as undoMove
+  usecase "Surrender" as surrender
+  usecase "Finish game" as endGame
+  usecase "View history" as viewHistory
+}
+player --> startGame
+player --> joinGame
+player --> chooseChess
+player --> moveChess
+player --> undoMove
+player --> surrender
+player --> endGame
+player --> viewHistory
+@enduml
