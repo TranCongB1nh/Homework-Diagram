@@ -1,0 +1,46 @@
+@startuml
+start
+repeat
+    :Check if Game Over;
+    if (Game Over?) then (yes)
+        :End Game;
+        stop
+    else (no)
+        :Check if Player's Turn;
+        if (Player's Turn?) then (yes)
+            :Check if Player Surrendered;
+            if (Player Surrendered?) then (yes)
+                :End Game;
+                stop
+            else (no)
+                :Choose Piece;
+                :Move Piece;
+                :Check if Player Won;
+                if (Player Won?) then (yes)
+                    :End Game;
+                    stop
+                else (no)
+                    :Check if Redo the Move;
+                    if (Redo the Move?) then (yes)
+                        :Redo the Move;
+                        :Choose Piece;
+                        :Move Piece;
+                    else (no)
+                        :Skip Checking;
+                    endif
+                endif
+            endif
+        else (no)
+            :Wait for Another Player Move;
+        endif
+    endif
+repeat while (not Game Over)
+@enduml
+@startuml
+start
+:New Game;
+:Join Game Room;
+:Wait for Game Start;
+:Start Game;
+stop
+@enduml
