@@ -1,0 +1,126 @@
+abstract ChessPieceBase {
+    - int positionX
+    - int positionY
+    - string chessType
+    + ChessPieceBase(int x, int y, string type)
+    + abstract checkMove()
+    + abstract setType()
+}
+
+
+class King {
+    + checkMove()
+    + setType()
+}
+
+class Queen {
+    + checkMove()
+    + setType()
+}
+
+class Bishop {
+    + checkMove()
+    + setType()
+}
+
+class Knight {
+    + checkMove()
+    + setType()
+}
+
+class Rook {
+    + checkMove()
+    + setType()
+}   
+
+class Pawn {
+    + checkMove()
+    + setType()
+}
+
+ChessPieceBase <|-- King
+ChessPieceBase <|-- Queen
+ChessPieceBase <|-- Bishop
+ChessPieceBase <|-- Knight
+ChessPieceBase <|-- Rook
+ChessPieceBase <|-- Pawn
+
+
+
+abstract BoardBase {
+    - ChessPieceBase[] pieces
+    + BoardBase()
+    + abstract addPiece()
+    + abstract removePiece()
+    + abstract movePiece()
+}
+
+class ChessBoard {
+    + addPiece()
+    + removePiece()
+    + movePiece()
+}
+
+BoardBase <|-- ChessBoard
+
+abstract PlayerBase {
+    - string name
+    - string color
+    - BoardBase board
+    + PlayerBase(string name, string color)
+    + abstract joinGame()
+    + abstract movePiece()
+    + abstract choosePiece()
+    + abstract chooseMove()
+    + abstract endGame()
+    + abstract outGame()
+    + abstract storeHistoryMove()
+}
+
+class PlayerBlack {
+    + joinGame()
+    + movePiece()
+    + choosePiece()
+    + chooseMove()
+    + endGame()
+    + outGame()
+    + storeHistoryMove()
+}
+
+class PlayerWhite {
+    + joinGame()
+    + movePiece()
+    + choosePiece()
+    + chooseMove()
+    + endGame()
+    + outGame()
+    + storeHistoryMove()
+}
+
+PlayerBase <|-- PlayerBlack
+PlayerBase <|-- PlayerWhite
+
+PlayerBlack -> ChessBoard
+PlayerWhite -> ChessBoard
+
+
+abstract GameBase {
+    - PlayerBase[] players
+    - BoardBase board
+    + GameBase()
+    + abstract startGame()
+    + abstract endGame()
+    + abstract storeHistoryMove()
+}
+
+class ChessGame {
+    + startGame()
+    + endGame()
+    + storeHistoryMove()
+}
+
+GameBase <|-- ChessGame
+
+ChessGame -> PlayerBlack
+ChessGame -> PlayerWhite
+ChessGame -> ChessBoard
