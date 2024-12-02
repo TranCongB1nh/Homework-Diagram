@@ -8,8 +8,8 @@ repeat
     else (no)
         :Check if Player's Turn;
         if (Player's Turn?) then (yes)
-            :Check if Player Surrendered;
-            if (Player Surrendered?) then (yes)
+            :Check if Player Resigned;
+            if (Player Resigned?) then (yes)
                 :End Game;
                 stop
             else (no)

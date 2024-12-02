@@ -1,10 +1,10 @@
 abstract ChessPieceBase {
-    - int positionX
-    - int positionY
+    - number positionX
+    - number positionY
     - string chessType
-    + ChessPieceBase(int x, int y, string type)
-    + abstract checkMove()
-    + abstract setType()
+    + ChessPieceBase(number x, number y, string type)
+    + function checkMove()
+    + function setType()
 }
 
 
@@ -50,9 +50,9 @@ ChessPieceBase <|-- Pawn
 abstract BoardBase {
     - ChessPieceBase[] pieces
     + BoardBase()
-    + abstract addPiece()
-    + abstract removePiece()
-    + abstract movePiece()
+    + function addPiece()
+    + function removePiece()
+    + function movePiece()
 }
 
 class ChessBoard {
@@ -68,13 +68,13 @@ abstract PlayerBase {
     - string color
     - BoardBase board
     + PlayerBase(string name, string color)
-    + abstract joinGame()
-    + abstract movePiece()
-    + abstract choosePiece()
-    + abstract chooseMove()
-    + abstract endGame()
-    + abstract outGame()
-    + abstract storeHistoryMove()
+    + function joinGame()
+    + function movePiece()
+    + function choosePiece()
+    + function chooseMove()
+    + function endGame()
+    + function outGame()
+    + function storeHistoryMove()
 }
 
 class PlayerBlack {
@@ -108,9 +108,9 @@ abstract GameBase {
     - PlayerBase[] players
     - BoardBase board
     + GameBase()
-    + abstract startGame()
-    + abstract endGame()
-    + abstract storeHistoryMove()
+    + function startGame()
+    + function endGame()
+    + function storeHistoryMove()
 }
 
 class ChessGame {
